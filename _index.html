@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/styles.css">        
+        <link rel="icon" type="image/png" href="img/favicon.png" /> 
+        <title>Conexus202</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="container">
+                <header>
+                   <div id="logo"><a href="#"><img src="img/logo_medium.png"></a></div>
+                   <div class="cx-nav-blue">
+                        <nav>
+                            <ul>
+                                <li><a href="#">
+                                    <img src="img/icon_home.png">
+                                </a></li>
+                                <li><a href="#"> <img src="img/icon_message.png"></a></li>                                    
+                            </ul>
+                        </nav>
+                   </div>
+                   <div class="cx-nav-icons">
+                        <nav>
+                            <ul>
+                                <li><a href="#"><img src="img/icon_user_little.png"><span>Quiénes somos</span></a></li>
+                                <li><a href="#"><img src="img/icon_settings.png"><span>Productios y servicios</span></a></li>
+                            </ul>
+                         </nav>
+                   </div>
+                   <div class="clear"></div>
+                </header>
+                <section id="form">
+                    <div style="margin-left:6px">
+                        <img src="img/ideas_medium.png" />
+                    </div>
+                    <div id="form_wrapper">
+                        <form id="send_idea">
+                            <label for="input_email">email</label>
+                            <input type="text" placeholder="Escribe tu e-mail acá" />
+
+                            <label for="input_name">nombre</label>
+                            <input type="text" placeholder="Escribe aquí tu nombre" />
+
+                            <label for="text_idea">idea</label>
+                            <textarea placeholder="Escribe aquí tu idea y juntos haremos que funcione"></textarea>
+                            <div id="submit_wrapper">
+                                <input type="submit" value="Enviar idea" />
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <section id="form_contact_us">
+                    <form id="contact_us">
+                        <input type="text" placeholder="Nombre" />
+                        <input type="text" placeholder="E-mail" />
+                        <textarea placeholder="Mensaje"></textarea>
+                        <input id="send_contact_us_info" type="submit" />
+                    </form>
+                </section>
+                <section id="content_map"></section>
+            </div>
+        </div>
+
+
+
+
+
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+        <script>
+            function initialize()
+            {
+                var myLatlng = new google.maps.LatLng(6.218655,-75.594019);
+                var myLatCenter = new google.maps.LatLng(6.218783,-75.597664);
+
+            var mapProp = {
+              center:myLatCenter,
+              zoom:16,
+              mapTypeId:google.maps.MapTypeId.ROADMAP,
+               disableDefaultUI: true,
+
+              };
+            var map=new google.maps.Map(document.getElementById("content_map")
+              ,mapProp);
+
+
+                var markerImage = new google.maps.MarkerImage('img/logo_ico.png',
+                new google.maps.Size(30, 30),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(15, 15));
+
+
+                var marker = new google.maps.Marker({
+                      position: myLatlng,
+                      map: map,
+                      title: 'Hello World!',
+                       icon: markerImage
+                  });
+
+            }
+             
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript">
+            $(document).on('ready', function(){
+                
+                $(document).on('scroll',function() {                    
+                    var x = $(this).scrollTop();                    
+                    $('#wrapper').css('background-position',parseInt(x) + 'px' + ' top');                   
+                });
+
+            });
+            
+        </script>
+
+    </body>
+</html>
