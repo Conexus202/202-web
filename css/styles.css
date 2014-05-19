@@ -22,6 +22,7 @@ body {
 }
 #logo {
 	width: 220px;
+	margin: 10px;
 }
 header {
 	background-image: url('../img/header_bg.png')
@@ -31,6 +32,9 @@ header > div {
 }
 section {
 	position: relative;
+}
+section > p, section > h1, section > h2 {
+	margin: 10px;
 }
 .cx-nav-blue {
 	float: right;
@@ -71,6 +75,40 @@ section {
 	display: inline-block;
 	margin-left: 6px;
  }
+.cx-team-list {
+	list-style-type: none;
+	max-width: 675px;
+	margin: 0 auto;
+}
+
+.cx-team-list > li > div {
+	display: inline-block;
+	vertical-align: top;
+}
+.cx-team-picture > img {	
+	border-radius: 3em;
+	width: 70px;
+	height: 70px;
+}
+.cx-team-list li {
+	display: inline-block;
+	width: 310px;
+	margin: 10px;
+}
+
+h1, h2, strong {
+	color: #4B7AB8;
+}
+
+blockquote {
+	font-style: italic;
+	font-size: 13px;
+	margin: 0 45px;
+}
+
+#team {		
+	margin-top: -10px;
+}
 
  #form {
     background-color: #F5F5F5;    
