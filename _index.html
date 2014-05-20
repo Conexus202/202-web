@@ -17,7 +17,7 @@
         <div id="wrapper">
             <div id="container">
                 <header>
-                   <div id="logo"><a href="#"><img src="img/logo_medium.png"></a></div>
+                   <div id="logo"><a href="#"><img src="img/blank.png" class="cx-logo"></a></div>
                    <div class="cx-nav-blue">
                         <nav>
                             <ul>
@@ -31,8 +31,8 @@
                    <div class="cx-nav-icons">
                         <nav>
                             <ul>
-                                <li><a href="#"><img src="img/icon_user_little.png"><span>¿Que es conexus202?</span></a></li>
-                                <li><a href="#"><img src="img/icon_settings.png"><span>¡Tengo una idea!</span></a></li>
+                                <li><a href="#team"><img src="img/icon_user_little.png"><span>¿Que es conexus202?</span></a></li>
+                                <li><a href="#form"><img src="img/icon_settings.png"><span>¡Tengo una idea!</span></a></li>
                                 <li><a href="#"><img src="img/icon_settings.png"><span>Productos y servicios</span></a></li>
                                 <li><a href="#"><img src="img/icon_settings.png"><span>Productos y servicios</span></a></li>
                             </ul>
@@ -40,6 +40,11 @@
                    </div>
                    <div class="clear"></div>
                 </header>
+
+                <div class="cx-separator">
+                    <div class="cx-separator-content"></div>
+                    <div class="cx-separator-right"></div>
+                </div>
 
                 <section id="team">
                     <h1>Conectando ideas</h1>
@@ -80,11 +85,18 @@
                             </div>
                         </li>
                     </ul>
-                </section>
+                </section>            
 
                 <section id="form">
-                    <div style="margin-left:6px">
-                        <img src="img/ideas_medium.png" />
+                    <div class="cx-form-image">      
+                        <div>
+                            <h5>Excepteur sint</h5>
+                            <span>Ut enim minim vanaim, quis nostrud exercitation ul lambo laboris nisi ut aliquip</span>
+                        </div>          
+                        <div>
+                            <h5>Excepteur sint</h5>
+                            <span>Ut enim minim vanaim, quis nostrud exercitation ul lambo laboris nisi ut aliquip</span>
+                        </div>          
                     </div>
                     <div id="form_wrapper">
                         <form id="send_idea">
@@ -101,7 +113,11 @@
                             </div>
                         </form>
                     </div>
+
                 </section>
+
+                
+
                 <section id="form_contact_us">
                     <form id="contact_us">
                         <input type="text" placeholder="Nombre" />
@@ -111,6 +127,22 @@
                     </form>
                 </section>
                 <section id="content_map"></section>
+
+
+                <footer>
+                    <div id="footer_wrapper">
+                        <div class="content_footer">
+                            <p class="inline_block">&copy; Conexus202 - Todos los derechos reservados</p>
+                            <div class="content_social_network inline_block">
+                                <a href="#"><img src="img/icon_facebook.png"></a>
+                                <a href="#"><img src="img/icon_gplus.png"></a>
+                                <a href="#"><img src="img/icon_twitter.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+
             </div>
         </div>
 
@@ -120,8 +152,7 @@
 
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
         <script>
-            function initialize()
-            {
+            function initialize() {
                 var myLatlng = new google.maps.LatLng(6.218655,-75.594019);
                 var myLatCenter = new google.maps.LatLng(6.218783,-75.597664);
 
@@ -133,10 +164,10 @@
                 };
 
                 var map=new google.maps.Map(document.getElementById("content_map"),mapProp);
-                var markerImage = new google.maps.MarkerImage('img/logo_ico.png',
-                new google.maps.Size(30, 30),
+                var markerImage = new google.maps.MarkerImage('img/logo_ballon.png',
+                new google.maps.Size(60, 60),
                 new google.maps.Point(0, 0),
-                new google.maps.Point(15, 15));
+                new google.maps.Point(0, 60));
 
                 var marker = new google.maps.Marker({
                     position: myLatlng,
@@ -154,9 +185,40 @@
         <script type="text/javascript">
             $(document).on('ready', function(){
                 
+                var shown = false;
+
                 $(document).on('scroll',function() {                    
                     var x = $(this).scrollTop();                    
                     $('#wrapper').css('background-position',parseInt(x) + 'px' + ' top');                   
+
+                    if($(document).scrollTop() >= ($("#team").offset().top - 57) && !shown) {  
+                        console.log($('html,body').offset().top)                      ;
+                        $("header").addClass('cx-header-sticky');
+                        console.log($('html,body').offset().top)    
+                        shown = true;
+                    }
+
+                    if ($(document).scrollTop() == 0 && shown) {
+                        $("header").removeClass('cx-header-sticky');
+
+                        shown = false;
+                    } 
+                });
+
+
+                $('a[href*=#]:not([href=#])').on('click',function() {
+                    
+                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                      var target = $(this.hash);
+                      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                      console.log(target.offset().top);
+                      if (target.length) {
+                        $('html,body').animate({
+                          scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                      }
+                    }
                 });
 
             });
