@@ -21,9 +21,7 @@
                    <div class="cx-nav-blue">
                         <nav>
                             <ul>
-                                <li><a href="#">
-                                    <img src="img/icon_home.png">
-                                </a></li>
+                                <li><a href="#"><img src="img/icon_home.png"></a></li>
                                 <li><a href="#"> <img src="img/icon_message.png"></a></li>                                    
                             </ul>
                         </nav>
@@ -47,9 +45,9 @@
                 </div>
 
                 <section id="team">
-                    <h1>Conectando ideas</h1>
-                    <p>Somos una empresa 100% colombiana con aroma a café :) que surge atraves de una idea para aprovechar principalmente las ideas que tienen las personas que tienen o no conocimiento en desarrollo de aplicaciones (Móvil, Web, Escritorio, etc…), ¡si tienes una idea estas a solo un click!</p>
-                    <blockquote>Es una idea para desarrollar ideas</blockquote>
+                    <h1>Lorem ipsum dolor</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod purus turpis, id semper orci facilisis sed. Cras quis justo nec nisi pulvinar pretium feugiat in diam. Curabitur pretium est orci, eu ornare magna varius at. Fusce massa neque, rutrum sit amet posuere vel, fermentum sed nibh. Vivamus sapien odio, pulvinar a gravida ut, vulputate vitae leo. Nullam convallis, nulla nec ullamcorper aliquet, est magna tincidunt augue, non vehicula lectus lorem vitae metus. Nulla feugiat est velit, in malesuada tellus lobortis et.</p>
+                    <blockquote>Proin et malesuada purus, posuere tempor orci. Fusce gravida euismod elit, ut mattis ligula aliquam a.</blockquote>
                     <h2>Los conexus</h2>
                     <ul class="cx-team-list">
                         <li>
@@ -72,7 +70,7 @@
                             <div class="cx-team-picture"><img src='http://th1225.photobucket.com/albums/ee394/JozuaGFX/Avatar%20Gallery/th_ozil.png'> </div>
                             <div>
                                 <div><strong>Mauricio Correa</strong></div>
-                                <div><span>Mäcmol(?) Builder!!!!</span></div>
+                                <div><span>Macmöl Builder!!!!</span></div>
                                 <div><span>macmol@conexus202.com</span></div>
                             </div>
                         </li>
@@ -90,12 +88,12 @@
                 <section id="form">
                     <div class="cx-form-image">      
                         <div>
-                            <h5>Excepteur sint</h5>
-                            <span>Ut enim minim vanaim, quis nostrud exercitation ul lambo laboris nisi ut aliquip</span>
+                            <h5>¿Tienes una idea?</h5>
+                            <span>Solo diligencia el formulario de ideas y nosotros nos encargamos del resto ;)</span>
                         </div>          
                         <div>
-                            <h5>Excepteur sint</h5>
-                            <span>Ut enim minim vanaim, quis nostrud exercitation ul lambo laboris nisi ut aliquip</span>
+                            <h5>Serás un Conexus</h5>
+                            <span>Pertenecerás automaticamente al equipo de conexus202.</span>
                         </div>          
                     </div>
                     <div id="form_wrapper">
@@ -113,11 +111,7 @@
                             </div>
                         </form>
                     </div>
-
-                </section>
-
-                
-
+                </section>            
                 <section id="form_contact_us">
                     <form id="contact_us">
                         <input type="text" placeholder="Nombre" />
@@ -127,8 +121,6 @@
                     </form>
                 </section>
                 <section id="content_map"></section>
-
-
                 <footer>
                     <div id="footer_wrapper">
                         <div class="content_footer">
@@ -141,14 +133,8 @@
                         </div>
                     </div>
                 </footer>
-
-
             </div>
         </div>
-
-
-
-
 
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
         <script>
@@ -175,9 +161,8 @@
                     title: 'Hello World!',
                     icon: markerImage
                 });
-
             }
-                         
+
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
 
@@ -185,46 +170,47 @@
         <script type="text/javascript">
             $(document).on('ready', function(){
                 
-                var shown = false;
+                checkScroll();
 
                 $(document).on('scroll',function() {                    
-                    var x = $(this).scrollTop();                    
-                    $('#wrapper').css('background-position',parseInt(x) + 'px' + ' top');                   
-
-                    if($(document).scrollTop() >= ($("#team").offset().top - 57) && !shown) {  
-                        console.log($('html,body').offset().top)                      ;
-                        $("header").addClass('cx-header-sticky');
-                        console.log($('html,body').offset().top)    
-                        shown = true;
-                    }
-
-                    if ($(document).scrollTop() == 0 && shown) {
-                        $("header").removeClass('cx-header-sticky');
-
-                        shown = false;
-                    } 
+                    checkScroll();
                 });
 
 
                 $('a[href*=#]:not([href=#])').on('click',function() {
                     
                     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                      var target = $(this.hash);
-                      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                      console.log(target.offset().top);
-                      if (target.length) {
-                        $('html,body').animate({
-                          scrollTop: target.offset().top
-                        }, 1000);
-                        return false;
-                      }
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                        console.log(target.offset().top);
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top - 56
+                            }, 1000);
+
+                            return false;
+                        }
                     }
                 });
-
             });
-            
-            
-        </script>
 
+            var shown = false;
+
+            function checkScroll(){
+                var x = $(this).scrollTop();                    
+                $('#wrapper').css('background-position',parseInt(x) + 'px' + ' top');                   
+
+                if($(document).scrollTop() >= ($("#team").offset().top - 57) && !shown) {                          
+                    $("#container").addClass('cx-header-sticky');        
+                    $('.cx-header-sticky > header').hide().slideDown('slow');                    
+                    shown = true;
+                }
+
+                if ($(document).scrollTop() <= ($("#team").offset().top - 57) && shown) {                        
+                   $("#container").removeClass('cx-header-sticky');                            
+                    shown = false;                        
+                }
+            }                    
+        </script>
     </body>
 </html>

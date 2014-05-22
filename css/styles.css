@@ -40,6 +40,7 @@ h5 {
 	margin: 0;
 	color: #0068DB;
 }
+
 .cx-nav-blue {
 	float: right;
 	margin-right: 20px;
@@ -146,12 +147,21 @@ h5 {
 	background-repeat: no-repeat;
 	margin-left: -6px;
 }
-.cx-header-sticky {
+.cx-header-sticky > header {
 	position:fixed;
     top:0;    
     z-index: 10000;
     margin: 0 auto;
-    height: 57px;
+    max-height: 57px;
+    display: none;
+
+
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.cx-header-sticky {
+	margin-top: 157px !important;
 }
 .cx-logo  {
 	background-image: url('../img/logo_medium.png');
@@ -177,10 +187,6 @@ h5 {
 
 .cx-header-sticky .cx-nav-blue > nav > ul > li > a {
 	margin-top: 16px;
-}
-
-#container < .cx-header-sticky {
-	margin-top: 157px !important;
 }
 
 .cx-header-sticky #container:parent {
