@@ -88,7 +88,7 @@ $(document).on('ready', function () {
 
         form.find('input,textarea').prop('disabled', true);
 
-        console.log('postin');
+        console.log('postin', data);
 
         $.post(form.prop('action'), data, function (data) {    
                 console.log(data)        ;
