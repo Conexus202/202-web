@@ -275,7 +275,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'concurrent:dist',
         'useminPrepare',
-        'imagemin',
+        //'imagemin',
         'concat',
         'cssmin',
         'uglify',
