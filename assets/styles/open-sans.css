@@ -9,3 +9,13 @@
     font-style: normal;
 
 }
+
+/* Icons */
+@font-face {
+    font-family: 'slick2';
+    font-weight: normal ;
+    font-style: normal;
+
+    src: url('../font/slick.eot');
+    src: url('../font/slick.eot?#iefix') format('embedded-opentype'), url('../font/slick.woff') format('woff'), url('../font/slick.ttf') format('truetype'), url('../font/slick.svg#slick') format('svg');
+}

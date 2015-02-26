@@ -448,3 +448,11 @@ footer {
 .slick-slide > img {
 	margin: 0 auto;
 }
+
+
+
+
+.slick-prev:before, .slick-next:before {
+	color: #0099cc !important;
+	font-family: 'slick2' !important;
+}
