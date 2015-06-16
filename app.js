@@ -61,7 +61,7 @@ app.use(bodyParser.urlencoded({limit: '5mb'}));
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'fabian@conexus202.com',
+        user: 'conexus202@gmail.com',
         pass: 'L1nk1np4rk'
     }
 });
