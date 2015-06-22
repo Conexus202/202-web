@@ -1,7 +1,10 @@
 'use strict';
 function initialize() {
-    var myLatlng = new google.maps.LatLng(6.218655, -75.594019);
-    var myLatCenter = new google.maps.LatLng(6.218783, -75.597664);
+    // var myLatlng = new google.maps.LatLng(6.218655, -75.594019);
+    // var myLatCenter = new google.maps.LatLng(6.218783, -75.597664);
+
+    var myLatlng = new google.maps.LatLng(6.245606, -75.593035);
+    var myLatCenter = new google.maps.LatLng(6.245457, -75.596210);
 
     var mapProp = {
         center: myLatCenter,
@@ -16,44 +19,54 @@ function initialize() {
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title: 'Hello World!',
+        title: 'Conexus202',
         icon: markerImage
     });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function checkScroll () {
-    if ($(window).width() > 800) {
-        var x = $(this).scrollTop();
-        $('#wrapper').css('background-position', parseInt(x) + 'px' + ' top');
+var $window = $(window);
+var $wrapper = $('#wrapper');
+var $document = $(document);
+var $team = $('#team');
+var $container = $('#container');
+var $sticky = $('.cx-header-sticky > header');
 
-        if ($(document).scrollTop() >= ($('#team').offset().top - 57) && !shown) {
-            $('#container').addClass('cx-header-sticky');
-            $('.cx-header-sticky > header').hide().slideDown('slow');
+function checkScroll () {
+
+
+    if ($window.width() > 800) {
+        var x = $window.scrollTop();
+        console.log(x);
+        $wrapper.css('background-position', parseInt(x) * 0.2  + 'px' + ' top');
+
+        if ($document.scrollTop() >= ($team.offset().top - 57) && !shown) {
+            $container.addClass('cx-header-sticky');
+            $sticky.hide().slideDown('slow');
             shown = true;
         }
 
-        if ($(document).scrollTop() <= ($('#team').offset().top - 57) && shown) {
-            $('#container').removeClass('cx-header-sticky');
+        if ($(document).scrollTop() <= ($team.offset().top - 57) && shown) {
+            $container.removeClass('cx-header-sticky');
             shown = false;
         }
     } else {
-        $('#container').removeClass('cx-header-sticky');
+        $container.removeClass('cx-header-sticky');
 
         shown = false;   
     }
 } 
 
-$(document).on('ready', function () {
+$document.on('ready', function () {
 
     checkScroll();
 
-    $(document).on('scroll', function () {
+    $document.on('scroll', function () {
         checkScroll();
     });
 
-    $(window).on('resize', function () {
+    $window.on('resize', function () {
         checkScroll();
     });
 
