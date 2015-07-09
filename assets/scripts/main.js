@@ -37,17 +37,16 @@ function checkScroll () {
 
 
     if ($window.width() > 800) {
-        var x = $window.scrollTop();
-        console.log(x);
+        var x = $window.scrollTop();        
         $wrapper.css('background-position', parseInt(x) * 0.2  + 'px' + ' top');
 
-        if ($document.scrollTop() >= ($team.offset().top - 57) && !shown) {
+        if (x >= ($team.offset().top - 57) && !shown) {
             $container.addClass('cx-header-sticky');
-            $sticky.hide().slideDown('slow');
+            $('.cx-header-sticky > header').hide().slideDown('slow');
             shown = true;
         }
 
-        if ($(document).scrollTop() <= ($team.offset().top - 57) && shown) {
+        if (x <= ($team.offset().top - 57) && shown) {
             $container.removeClass('cx-header-sticky');
             shown = false;
         }
@@ -101,14 +100,14 @@ $document.on('ready', function () {
 
         form.find('input,textarea').prop('disabled', true);
 
-        console.log('postin', data);
+        
 
         $.post(form.prop('action'), data, function (data) {    
-                console.log(data)        ;
+                
                 //do something with data/response returned by server
                 form.find('input,textarea').prop('disabled', false);
                 //if (data.status !== 'success') { return; }
-                console.log('bienn');
+                
                 
                 var msg = $('<div>').prop({
                     'style': 'display: none; text-align: center;',
@@ -116,7 +115,7 @@ $document.on('ready', function () {
                 }).html('<h5>Ya recibimos tu idea!</h5>');
                 $('#submit_wrapper').prepend(msg);
                 //$('#submit_wrapper').append(msg);
-                console.log($('#submit_wrapper'));
+                
                 msg.fadeIn(100);
                 form.find('input[type="text"],textarea').val('');
                 
