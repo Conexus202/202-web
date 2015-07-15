@@ -5,7 +5,7 @@ body {
 #wrapper {
 	width: 100%;
 	background-color: #F5F5F5;
-	
+
 	background-image: url('../images/sky.png');
 	background-position: 0 top;
 	overflow:hidden;
@@ -13,12 +13,12 @@ body {
 }
 
 #container {
-	max-width: 900px;	
+	max-width: 900px;
 	background-color: #fff;
 	margin: 0 auto;
 	min-height: 1000px;
 	box-shadow: 0px 10px 10px 5px #888888;
-	
+
 
 }
 #logo {
@@ -68,7 +68,7 @@ h5 {
 
 }
 .cx-nav-icons > nav > ul > li {
-	display: inline-block;	
+	display: inline-block;
 }
 .cx-nav-icons > nav > ul > li > a {
 	display: inline-block;
@@ -93,7 +93,7 @@ h5 {
 	display: inline-block;
 	vertical-align: top;
 }
-.cx-team-picture > img {	
+.cx-team-picture > img {
 	border-radius: 3em;
 	width: 70px;
 	height: 70px;
@@ -130,15 +130,15 @@ h5 {
 	left: 308px;
 	top: 67px;
 }
-.cx-separator {	
+.cx-separator {
 	margin-top: -18px;
-	width: 100%;	
+	width: 100%;
 }
 .cx-separator > div {
 	display: inline-block;
 }
 .cx-separator-content {
-	background-image: url('../images/separator_content.png');	
+	background-image: url('../images/separator_content.png');
 	height: 34px;
 	width: 80%;
 	background-repeat: repeat-x;
@@ -152,7 +152,7 @@ h5 {
 }
 .cx-header-sticky > header {
 	position:fixed;
-    top:0;    
+    top:0;
     z-index: 10000;
     margin: 0 auto;
     max-height: 57px;
@@ -226,12 +226,12 @@ blockquote {
 	margin: 0 45px;
 }
 
-#team {		
+#team {
 	margin-top: -10px;
 }
 
  #form {
-    background-color: #F5F5F5;    
+    background-color: #F5F5F5;
 }
 #form #form_wrapper {
     background-color: #FFFFFF;
@@ -326,7 +326,7 @@ form#contact_us {
     right: 19px;
     width: 900px;
 }
-footer {	
+footer {
 	position: relative;
 	width: 100%;
 }
@@ -389,7 +389,7 @@ footer {
 		border-radius: 0;
 	}*/
 
-	.cx-team-list { 
+	.cx-team-list {
 		padding: 0;
 	}
 
@@ -440,8 +440,9 @@ footer {
 /* Nicolas Gallagher micro clearfix */
 .clearfix:before, .clearfix:after { display: table; content: ""; }
 .clearfix:after { clear: both; }
-.slick-slide img {    
-    width: 220px;
+.slick-slide img {
+    width: 210px;
+		/*margin: 4px;*/
 }
 
 
